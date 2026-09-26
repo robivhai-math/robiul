@@ -164,6 +164,42 @@
                 left: 20px;
             }
         }
+
+        /* Dynamic Scroll Shrink for Top Contact Bar */
+        #top-bar {
+            transition: all 0.3s ease-in-out;
+        }
+        #top-bar.is-scrolled {
+            padding-top: 0.35rem;
+            padding-bottom: 0.35rem;
+            background-color: rgba(15, 23, 42, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        #top-bar.is-scrolled .contact-pill {
+            padding: 0.25rem 0.65rem;
+            border-width: 1.5px;
+        }
+        #top-bar.is-scrolled .contact-icon {
+            width: 1.85rem;
+            height: 1.85rem;
+            font-size: 0.9rem;
+            margin-right: 0.35rem;
+        }
+        #top-bar.is-scrolled .contact-label {
+            display: none;
+        }
+        #top-bar.is-scrolled .contact-num {
+            font-size: 0.85rem;
+        }
+        #top-bar.is-scrolled .status-badge {
+            display: none;
+        }
+        #navbar {
+            transition: all 0.3s ease-in-out;
+        }
+        #navbar.is-scrolled {
+            top: 2.75rem !important;
+        }
     </style>
 </head>
 <body class="antialiased relative selection:bg-indigo-200 selection:text-indigo-900">
@@ -175,50 +211,56 @@
         <div class="absolute -bottom-32 left-1/3 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
     </div>
 
-    <!-- Top Quick Contact Bar (High Contrast, Ultra Visible & Eye-Catching) -->
-    <div class="fixed top-0 left-0 w-full z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 py-2 sm:py-3 px-3 sm:px-6 shadow-2xl transition-all">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-center sm:justify-between items-center gap-3 sm:gap-4">
+    <!-- Top Quick Contact Bar (Auto-shrinks on scroll) -->
+    <div id="top-bar" class="fixed top-0 left-0 w-full z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 py-2 sm:py-3 px-3 sm:px-6 shadow-2xl transition-all">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-center sm:justify-between items-center gap-2 sm:gap-4">
             
-            <!-- Quick Contact Links (High-Visibility Glowing Pill Cards) -->
-            <div class="flex items-center flex-wrap justify-center gap-3 sm:gap-6 text-white">
+            <!-- Quick Contact Links -->
+            <div class="flex items-center flex-wrap justify-center gap-2.5 sm:gap-6 text-white">
                 <!-- Phone Number (Direct Dial) -->
-                <a href="tel:+8801402775903" class="flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-indigo-500/70 hover:border-indigo-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-indigo-500/25 transition-all group hover:scale-[1.03]" title="সরাসরি কল করতে ক্লিক করুন">
-                    <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-indigo-500/50 transition-all text-lg sm:text-xl">
+                <a href="tel:+8801402775903" class="contact-pill flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-indigo-500/70 hover:border-indigo-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-indigo-500/25 transition-all group hover:scale-[1.03]" title="সরাসরি কল করতে ক্লিক করুন">
+                    <span class="contact-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-indigo-500/50 transition-all text-lg sm:text-xl shrink-0">
                         <i class="fas fa-phone-alt"></i>
                     </span>
                     <div class="flex flex-col text-left">
-                        <span class="text-[11px] sm:text-xs text-indigo-300 uppercase tracking-wider font-bold">সরাসরি কল করুন</span>
-                        <span class="text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-indigo-200">01402775903</span>
+                        <span class="contact-label text-[11px] sm:text-xs text-indigo-300 uppercase tracking-wider font-bold">সরাসরি কল করুন</span>
+                        <span class="contact-num text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-indigo-200">01402775903</span>
                     </div>
                 </a>
 
                 <!-- WhatsApp (Direct Chat) -->
-                <a href="https://wa.me/8801580789051" target="_blank" class="flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-emerald-500/70 hover:border-emerald-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-emerald-500/25 transition-all group hover:scale-[1.03]" title="WhatsApp-এ সরাসরি মেসেজ পাঠাতে ক্লিক করুন">
-                    <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-emerald-600 to-green-400 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-emerald-500/50 transition-all text-xl sm:text-2xl">
+                <a href="https://wa.me/8801580789051" target="_blank" class="contact-pill flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-emerald-500/70 hover:border-emerald-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-emerald-500/25 transition-all group hover:scale-[1.03]" title="WhatsApp-এ সরাসরি মেসেজ পাঠাতে ক্লিক করুন">
+                    <span class="contact-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-emerald-600 to-green-400 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-emerald-500/50 transition-all text-xl sm:text-2xl shrink-0">
                         <i class="fab fa-whatsapp"></i>
                     </span>
                     <div class="flex flex-col text-left">
-                        <span class="text-[11px] sm:text-xs text-emerald-300 uppercase tracking-wider font-bold">WhatsApp চ্যাট</span>
-                        <span class="text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-emerald-200">01580789051</span>
+                        <span class="contact-label text-[11px] sm:text-xs text-emerald-300 uppercase tracking-wider font-bold">WhatsApp চ্যাট</span>
+                        <span class="contact-num text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-emerald-200">01580789051</span>
                     </div>
                 </a>
             </div>
 
             <!-- Booking Status Badge -->
-            <div class="hidden lg:flex items-center space-x-2 text-sm text-emerald-300 bg-emerald-950/60 px-4 py-2 rounded-full border border-emerald-500/50 shadow-md shadow-emerald-500/20">
+            <div class="status-badge hidden lg:flex items-center space-x-2 text-sm text-emerald-300 bg-emerald-950/60 px-4 py-2 rounded-full border border-emerald-500/50 shadow-md shadow-emerald-500/20">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span class="font-bold tracking-wide">বুকিং টিউশন</span>
             </div>
         </div>
     </div>
 
-    <!-- Main Navigation Bar (Positioned below enlarged top-bar) -->
+    <!-- Main Navigation Bar (With Circular Profile Avatar) -->
     <nav id="navbar" class="fixed top-16 sm:top-20 w-full z-40 transition-all duration-300 py-3">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center glass px-6 py-3 rounded-full shadow-sm">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-gradient tracking-tight">মোঃ রবিউল ইসলাম</a>
+            <div class="flex justify-between items-center glass px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-sm">
+                <!-- Logo & 3rd Profile Avatar -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="#home" class="flex items-center space-x-2.5 sm:space-x-3 group">
+                        <div class="relative">
+                            <img src="avatar.jpg" onerror="this.onerror=null; this.src='profile.jpg';" alt="মোঃ রবিউল ইসলাম" class="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-indigo-500 shadow-md ring-2 ring-indigo-200 group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+                        </div>
+                        <span class="text-xl sm:text-2xl font-bold text-gradient tracking-tight">মোঃ রবিউল ইসলাম</span>
+                    </a>
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -1028,15 +1070,21 @@
                 });
             });
 
-            // 2. Sticky Navbar Glass Effect on Scroll
+            // 2. Sticky Navbar & Top Bar Shrink on Scroll
+            const topBar = document.getElementById('top-bar');
             const navbar = document.getElementById('navbar');
+
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    navbar.classList.add('py-2');
-                    navbar.classList.remove('py-4');
+                if (window.scrollY > 35) {
+                    topBar.classList.add('is-scrolled');
+                    navbar.classList.add('is-scrolled');
+                    navbar.classList.add('py-1.5');
+                    navbar.classList.remove('py-3');
                 } else {
-                    navbar.classList.add('py-4');
-                    navbar.classList.remove('py-2');
+                    topBar.classList.remove('is-scrolled');
+                    navbar.classList.remove('is-scrolled');
+                    navbar.classList.add('py-3');
+                    navbar.classList.remove('py-1.5');
                 }
             });
 
