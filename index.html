@@ -25,14 +25,14 @@
                         sans: ['Hind Siliguri', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#4f46e5',   /* Indigo 600 */
-                        secondary: '#7c3aed', /* Violet 600 */
-                        accent: '#06b6d4',    /* Cyan 500 */
-                        dark: '#0f172a',      /* Slate 900 */
-                        light: '#f8fafc',     /* Slate 50 */
+                        primary: '#059669',   /* Emerald 600 */
+                        secondary: '#0d9488', /* Teal 600 */
+                        accent: '#10b981',    /* Emerald 500 */
+                        dark: '#064e3b',      /* Deep Emerald / Dark Green */
+                        light: '#f0fdf4',     /* Light Mint 50 */
                     },
                     backgroundImage: {
-                        'gradient-primary': 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #2563eb 100%)',
+                        'gradient-primary': 'linear-gradient(135deg, #059669 0%, #0d9488 50%, #047857 100%)',
                     }
                 }
             }
@@ -43,45 +43,45 @@
         /* Base styles */
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
+            background: linear-gradient(180deg, #f0fdf4 0%, #f7fee7 50%, #ecfdf5 100%);
+            color: #0f172a;
             overflow-x: hidden;
         }
 
         /* Glassmorphism Utilities */
         .glass {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.82);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 32px 0 rgba(5, 150, 105, 0.08);
         }
         
         .glass-dark {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(6, 78, 59, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.95);
             border-radius: 1rem;
             transition: all 0.3s ease;
         }
 
         .glass-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.15);
-            border-color: rgba(124, 58, 237, 0.3);
+            box-shadow: 0 15px 35px rgba(5, 150, 105, 0.14);
+            border-color: rgba(13, 148, 136, 0.35);
         }
 
         /* Gradient Text */
         .text-gradient {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%);
+            background: linear-gradient(135deg, #047857 0%, #059669 40%, #0d9488 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -91,7 +91,7 @@
         /* Animations */
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-12px); }
             100% { transform: translateY(0px); }
         }
 
@@ -111,15 +111,11 @@
         }
 
         .animate-blob {
-            animation: blob 7s infinite;
+            animation: blob 8s infinite;
         }
         
         .animation-delay-2000 {
             animation-delay: 2s;
-        }
-        
-        .animation-delay-4000 {
-            animation-delay: 4s;
         }
 
         /* Scroll Reveal Utility */
@@ -134,149 +130,120 @@
             transform: translateY(0);
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        /* Timeline Styles */
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #4f46e5, #06b6d4);
-            z-index: -1;
-        }
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 20px;
-            }
-        }
-
-        /* Dynamic Scroll Shrink for Top Contact Bar */
+        /* Top Bar Shrink Behavior */
         #top-bar {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         #top-bar.is-scrolled {
-            padding-top: 0.35rem;
-            padding-bottom: 0.35rem;
-            background-color: rgba(15, 23, 42, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            background-color: rgba(2, 44, 34, 0.98);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
-        #top-bar.is-scrolled .contact-pill {
-            padding: 0.25rem 0.65rem;
-            border-width: 1.5px;
+        #top-bar.is-scrolled .mini-btn {
+            padding: 0.15rem 0.45rem;
+            font-size: 0.72rem;
+            border-width: 1px;
         }
-        #top-bar.is-scrolled .contact-icon {
-            width: 1.85rem;
-            height: 1.85rem;
-            font-size: 0.9rem;
-            margin-right: 0.35rem;
+        #top-bar.is-scrolled .mini-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            font-size: 0.7rem;
+            margin-right: 0.25rem;
         }
-        #top-bar.is-scrolled .contact-label {
-            display: none;
-        }
-        #top-bar.is-scrolled .contact-num {
-            font-size: 0.85rem;
-        }
-        #top-bar.is-scrolled .status-badge {
-            display: none;
-        }
+
+        /* Main Navbar Dynamic Position */
         #navbar {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         #navbar.is-scrolled {
-            top: 2.75rem !important;
+            top: 2.25rem !important;
+        }
+
+        /* Pulse glow for Avatar */
+        .avatar-glow {
+            box-shadow: 0 0 25px rgba(5, 150, 105, 0.45);
         }
     </style>
 </head>
-<body class="antialiased relative selection:bg-indigo-200 selection:text-indigo-900">
+<body class="antialiased relative selection:bg-emerald-200 selection:text-emerald-900">
 
-    <!-- Background Blobs -->
+    <!-- Background Blobs (Soft Fresh Green & Teal Glows) -->
     <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] overflow-hidden">
-        <div class="absolute top-0 left-1/4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-32 left-1/3 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+        <div class="absolute top-0 left-1/4 w-80 h-80 bg-emerald-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+        <div class="absolute top-10 right-1/4 w-80 h-80 bg-teal-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
     </div>
 
-    <!-- Top Quick Contact Bar (Auto-shrinks on scroll) -->
-    <div id="top-bar" class="fixed top-0 left-0 w-full z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 py-2 sm:py-3 px-3 sm:px-6 shadow-2xl transition-all">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-center sm:justify-between items-center gap-2 sm:gap-4">
+    <!-- Top Quick Contact Bar (Phone Left | WhatsApp Right) -->
+    <div id="top-bar" class="fixed top-0 left-0 w-full z-50 bg-slate-950/95 backdrop-blur-md border-b border-emerald-900/40 py-1.5 sm:py-2 px-3 sm:px-6 shadow-md transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center w-full">
             
-            <!-- Quick Contact Links -->
-            <div class="flex items-center flex-wrap justify-center gap-2.5 sm:gap-6 text-white">
-                <!-- Phone Number (Direct Dial) -->
-                <a href="tel:+8801402775903" class="contact-pill flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-indigo-500/70 hover:border-indigo-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-indigo-500/25 transition-all group hover:scale-[1.03]" title="সরাসরি কল করতে ক্লিক করুন">
-                    <span class="contact-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-indigo-500/50 transition-all text-lg sm:text-xl shrink-0">
-                        <i class="fas fa-phone-alt"></i>
-                    </span>
-                    <div class="flex flex-col text-left">
-                        <span class="contact-label text-[11px] sm:text-xs text-indigo-300 uppercase tracking-wider font-bold">সরাসরি কল করুন</span>
-                        <span class="contact-num text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-indigo-200">01402775903</span>
-                    </div>
-                </a>
+            <!-- Left Side: Phone (Compact & Direct Dial) -->
+            <a href="tel:+8801402775903" class="mini-btn flex items-center bg-slate-900 hover:bg-slate-800 border border-emerald-500/60 px-2.5 py-1 rounded-full shadow transition-all group hover:scale-105" title="সরাসরি কল করতে ট্যাপ করুন">
+                <span class="mini-icon w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center mr-1.5 text-xs shrink-0 group-hover:bg-emerald-500">
+                    <i class="fas fa-phone-alt"></i>
+                </span>
+                <span class="text-xs sm:text-sm font-semibold tracking-wide text-emerald-100 group-hover:text-white font-sans">01402775903</span>
+            </a>
 
-                <!-- WhatsApp (Direct Chat) -->
-                <a href="https://wa.me/8801580789051" target="_blank" class="contact-pill flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-emerald-500/70 hover:border-emerald-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-emerald-500/25 transition-all group hover:scale-[1.03]" title="WhatsApp-এ সরাসরি মেসেজ পাঠাতে ক্লিক করুন">
-                    <span class="contact-icon w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-emerald-600 to-green-400 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-emerald-500/50 transition-all text-xl sm:text-2xl shrink-0">
-                        <i class="fab fa-whatsapp"></i>
-                    </span>
-                    <div class="flex flex-col text-left">
-                        <span class="contact-label text-[11px] sm:text-xs text-emerald-300 uppercase tracking-wider font-bold">WhatsApp চ্যাট</span>
-                        <span class="contact-num text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-emerald-200">01580789051</span>
-                    </div>
-                </a>
+            <!-- Center Badge (Hidden on very small screens) -->
+            <div class="hidden md:flex items-center space-x-1.5 text-xs text-emerald-300 bg-emerald-950/60 px-3 py-0.5 rounded-full border border-emerald-500/40">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-medium tracking-wide">বুকিং টিউশন</span>
             </div>
 
-            <!-- Booking Status Badge -->
-            <div class="status-badge hidden lg:flex items-center space-x-2 text-sm text-emerald-300 bg-emerald-950/60 px-4 py-2 rounded-full border border-emerald-500/50 shadow-md shadow-emerald-500/20">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="font-bold tracking-wide">বুকিং টিউশন</span>
-            </div>
+            <!-- Right Side: WhatsApp (Compact & Direct Chat) -->
+            <a href="https://wa.me/8801580789051" target="_blank" class="mini-btn flex items-center bg-slate-900 hover:bg-slate-800 border border-teal-500/60 px-2.5 py-1 rounded-full shadow transition-all group hover:scale-105" title="WhatsApp-এ সরাসরি চ্যাট করুন">
+                <span class="mini-icon w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center mr-1.5 text-xs shrink-0 group-hover:bg-teal-500">
+                    <i class="fab fa-whatsapp"></i>
+                </span>
+                <span class="text-xs sm:text-sm font-semibold tracking-wide text-teal-100 group-hover:text-white font-sans">01580789051</span>
+            </a>
+
         </div>
     </div>
 
-    <!-- Main Navigation Bar (With Circular Profile Avatar) -->
-    <nav id="navbar" class="fixed top-16 sm:top-20 w-full z-40 transition-all duration-300 py-3">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center glass px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-sm">
-                <!-- Logo & 3rd Profile Avatar -->
-                <div class="flex-shrink-0 flex items-center space-x-3">
-                    <a href="#home" class="flex items-center space-x-2.5 sm:space-x-3 group">
-                        <div class="relative">
-                            <img src="avatar.jpg" onerror="this.onerror=null; this.src='profile.jpg';" alt="মোঃ রবিউল ইসলাম" class="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-indigo-500 shadow-md ring-2 ring-indigo-200 group-hover:scale-105 transition-transform duration-300">
-                            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+    <!-- Main Navigation Bar (With Extra Large Circular Profile Avatar) -->
+    <nav id="navbar" class="fixed top-11 sm:top-12 w-full z-40 transition-all duration-300 py-2 sm:py-3">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center glass px-3 sm:px-6 py-2 rounded-2xl sm:rounded-full shadow-md border border-emerald-100/90">
+                
+                <!-- Prominent Big Circular Avatar & Identity -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="flex items-center space-x-3 sm:space-x-4 group">
+                        <!-- BIG AVATAR WRAPPER -->
+                        <div class="relative shrink-0">
+                            <img src="avatar.jpg" onerror="this.onerror=null; this.src='profile.jpg';" alt="মোঃ রবিউল ইসলাম" class="w-14 h-14 sm:w-20 sm:h-20 rounded-full object-cover border-2 sm:border-4 border-emerald-500 avatar-glow ring-4 ring-emerald-200/80 group-hover:scale-105 transition-all duration-300">
+                            <!-- Online indicator badge -->
+                            <span class="absolute bottom-0 right-0 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-emerald-500 border-2 border-white rounded-full shadow"></span>
                         </div>
-                        <span class="text-xl sm:text-2xl font-bold text-gradient tracking-tight">মোঃ রবিউল ইসলাম</span>
+
+                        <!-- Tutor Name & Subject Tag -->
+                        <div class="flex flex-col">
+                            <span class="text-lg sm:text-2xl font-extrabold text-slate-800 tracking-tight leading-tight group-hover:text-primary transition-colors">
+                                মোঃ রবিউল ইসলাম
+                            </span>
+                            <span class="text-xs sm:text-sm text-emerald-700 font-semibold tracking-wide">
+                                Math & Science Tutor
+                            </span>
+                        </div>
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex space-x-6 items-center">
-                    <a href="#home" class="text-slate-600 hover:text-primary font-medium transition-colors">হোম</a>
-                    <a href="#about" class="text-slate-600 hover:text-primary font-medium transition-colors">আমার সম্পর্কে</a>
-                    <a href="#subjects" class="text-slate-600 hover:text-primary font-medium transition-colors">বিষয়সমূহ</a>
-                    <a href="#method" class="text-slate-600 hover:text-primary font-medium transition-colors">পদ্ধতি</a>
-                    <a href="#qualifications" class="text-slate-600 hover:text-primary font-medium transition-colors">যোগ্যতা</a>
-                    <a href="#tuition" class="text-slate-600 hover:text-primary font-medium transition-colors">তথ্য</a>
-                    <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-primary text-white font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:-translate-y-0.5">যোগাযোগ</a>
+                    <a href="#home" class="text-slate-700 hover:text-primary font-medium transition-colors">হোম</a>
+                    <a href="#about" class="text-slate-700 hover:text-primary font-medium transition-colors">আমার সম্পর্কে</a>
+                    <a href="#subjects" class="text-slate-700 hover:text-primary font-medium transition-colors">বিষয়সমূহ</a>
+                    <a href="#method" class="text-slate-700 hover:text-primary font-medium transition-colors">পদ্ধতি</a>
+                    <a href="#qualifications" class="text-slate-700 hover:text-primary font-medium transition-colors">যোগ্যতা</a>
+                    <a href="#tuition" class="text-slate-700 hover:text-primary font-medium transition-colors">তথ্য</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-primary text-white font-medium hover:shadow-lg hover:shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5">যোগাযোগ</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary focus:outline-none p-2">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-primary focus:outline-none p-2 rounded-lg bg-emerald-50 border border-emerald-200">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -285,28 +252,31 @@
 
         <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden lg:hidden mt-2 mx-4 absolute left-0 right-0">
-            <div class="glass rounded-2xl p-4 flex flex-col space-y-3 shadow-lg">
-                <a href="#home" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-indigo-50 rounded-lg">হোম</a>
-                <a href="#about" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-indigo-50 rounded-lg">আমার সম্পর্কে</a>
-                <a href="#subjects" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-indigo-50 rounded-lg">বিষয়সমূহ</a>
-                <a href="#method" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-indigo-50 rounded-lg">পড়ানোর পদ্ধতি</a>
+            <div class="glass rounded-2xl p-4 flex flex-col space-y-3 shadow-xl border border-emerald-100">
+                <a href="#home" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-emerald-50 rounded-lg">হোম</a>
+                <a href="#about" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-emerald-50 rounded-lg">আমার সম্পর্কে</a>
+                <a href="#subjects" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-emerald-50 rounded-lg">বিষয়সমূহ</a>
+                <a href="#method" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-emerald-50 rounded-lg">পড়ানোর পদ্ধতি</a>
+                <a href="#qualifications" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-emerald-50 rounded-lg">যোগ্যতা</a>
+                <a href="#tuition" class="mobile-link text-slate-700 font-medium px-4 py-2 hover:bg-emerald-50 rounded-lg">টিউশন তথ্য</a>
                 <a href="#contact" class="mobile-link mt-2 text-center px-4 py-3 rounded-xl bg-gradient-primary text-white font-medium shadow-md">যোগাযোগ করুন</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="relative pt-40 pb-20 lg:pt-56 lg:pb-32 overflow-hidden">
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-36 pb-16 sm:pt-48 lg:pt-52 lg:pb-28 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 
                 <!-- Hero Text -->
                 <div class="reveal">
-                    <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6">
-                        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                        <span class="text-sm font-medium text-slate-700">Available for New Students</span>
+                    <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full mb-6 border border-emerald-200">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-sm font-semibold text-emerald-900">Available for New Students</span>
                     </div>
                     
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                         <span class="block text-slate-800">গণিত ও বিজ্ঞানকে ভয় নয়,</span>
                         <span class="text-gradient block mt-2">বুঝে শেখার অভ্যাস গড়ে তুলি।</span>
                     </h1>
@@ -316,10 +286,10 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-gradient-primary text-white font-semibold text-lg shadow-xl shadow-indigo-500/30 hover:shadow-2xl hover:shadow-indigo-500/40 hover:-translate-y-1 transition-all">
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-gradient-primary text-white font-semibold text-lg shadow-xl shadow-emerald-600/30 hover:shadow-2xl hover:shadow-emerald-600/40 hover:-translate-y-1 transition-all">
                             একটি ক্লাস সম্পর্কে জানুন
                         </a>
-                        <a href="#tuition" class="inline-flex justify-center items-center px-8 py-4 rounded-full glass border border-slate-200 text-slate-700 font-semibold text-lg hover:bg-white transition-all">
+                        <a href="#tuition" class="inline-flex justify-center items-center px-8 py-4 rounded-full glass border border-emerald-200 text-slate-700 font-semibold text-lg hover:bg-white transition-all">
                             টিউশন তথ্য
                         </a>
                     </div>
@@ -327,21 +297,18 @@
 
                 <!-- Hero Image & Graphics -->
                 <div class="relative lg:ml-auto reveal">
-                    <!-- Decorative Circle behind image -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-200 to-cyan-100 rounded-full blur-2xl opacity-60 animate-blob"></div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-200 to-teal-100 rounded-full blur-2xl opacity-70 animate-blob"></div>
                     
                     <div class="relative z-10 w-full max-w-md mx-auto">
-                        <!-- Teacher Image -->
-                        <div class="rounded-3xl overflow-hidden glass p-2 shadow-2xl relative">
+                        <!-- Teacher Profile Image -->
+                        <div class="rounded-3xl overflow-hidden glass p-2 shadow-2xl relative border border-emerald-100">
                             <img src="profile.jpg" alt="মোঃ রবিউল ইসলাম" class="w-full h-[420px] rounded-2xl object-cover">
-                            
-                            <!-- Overlay subtle gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent rounded-2xl pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/40 to-transparent rounded-2xl pointer-events-none"></div>
                         </div>
 
                         <!-- Floating Card 1 -->
-                        <div class="absolute -left-6 top-1/4 glass-card px-4 py-3 shadow-lg flex items-center space-x-3 animate-float">
-                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-primary">
+                        <div class="absolute -left-6 top-1/4 glass-card px-4 py-3 shadow-lg flex items-center space-x-3 animate-float border border-emerald-200/60">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-primary">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
                             <div>
@@ -351,8 +318,8 @@
                         </div>
 
                         <!-- Floating Card 2 -->
-                        <div class="absolute -right-6 bottom-1/4 glass-card px-4 py-3 shadow-lg flex items-center space-x-3 animate-float-delayed">
-                            <div class="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-accent">
+                        <div class="absolute -right-6 bottom-1/4 glass-card px-4 py-3 shadow-lg flex items-center space-x-3 animate-float-delayed border border-teal-200/60">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-secondary">
                                 <i class="fas fa-users"></i>
                             </div>
                             <div>
@@ -366,29 +333,31 @@
         </div>
     </section>
 
-    <section class="py-12 relative z-10">
+    <!-- Statistics Section -->
+    <section class="py-10 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 reveal">
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center border-t-2 border-t-emerald-500">
                     <h3 class="text-4xl font-bold text-primary mb-1">৬</h3>
                     <p class="text-sm text-slate-600 font-medium">বছরের অভিজ্ঞতা</p>
                 </div>
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center border-t-2 border-t-teal-500">
                     <h3 class="text-4xl font-bold text-secondary mb-1">২০+</h3>
                     <p class="text-sm text-slate-600 font-medium">শিক্ষার্থী</p>
                 </div>
-                <div class="glass-card p-6 text-center">
+                <div class="glass-card p-6 text-center border-t-2 border-t-emerald-400">
                     <h3 class="text-4xl font-bold text-accent mb-1">৫+</h3>
                     <p class="text-sm text-slate-600 font-medium">প্রধান বিষয়</p>
                 </div>
-                <div class="glass-card p-6 text-center">
-                    <h3 class="text-4xl font-bold text-indigo-500 mb-1">১০০%</h3>
+                <div class="glass-card p-6 text-center border-t-2 border-t-green-600">
+                    <h3 class="text-4xl font-bold text-emerald-700 mb-1">১০০%</h3>
                     <p class="text-sm text-slate-600 font-medium">ধারণাভিত্তিক শেখানো</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- About Me Section -->
     <section id="about" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -400,7 +369,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Image Side -->
                 <div class="lg:col-span-5 reveal">
-                    <div class="relative rounded-3xl overflow-hidden glass p-3">
+                    <div class="relative rounded-3xl overflow-hidden glass p-3 border border-emerald-100 shadow-xl group">
                         <img src="about.jpg" alt="মোঃ রবিউল ইসলাম" class="w-full h-full object-cover rounded-2xl">
                     </div>
                 </div>
@@ -416,22 +385,21 @@
                     
                     <ul class="space-y-3 mt-6">
                         <li class="flex items-center text-slate-700">
-                            <span class="w-8 h-8 rounded-full bg-indigo-100 text-primary flex justify-center items-center mr-3 shadow-sm"><i class="fas fa-check text-sm"></i></span>
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-primary flex justify-center items-center mr-3 shadow-sm"><i class="fas fa-check text-sm"></i></span>
                             বিভিন্ন স্তরের শিক্ষার্থীদের সঙ্গে কাজের অভিজ্ঞতা
                         </li>
                         <li class="flex items-center text-slate-700">
-                            <span class="w-8 h-8 rounded-full bg-indigo-100 text-primary flex justify-center items-center mr-3 shadow-sm"><i class="fas fa-check text-sm"></i></span>
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-primary flex justify-center items-center mr-3 shadow-sm"><i class="fas fa-check text-sm"></i></span>
                             দুর্বল শিক্ষার্থীদের Concept Building-এ বিশেষ গুরুত্ব
                         </li>
                         <li class="flex items-center text-slate-700">
-                            <span class="w-8 h-8 rounded-full bg-indigo-100 text-primary flex justify-center items-center mr-3 shadow-sm"><i class="fas fa-check text-sm"></i></span>
+                            <span class="w-8 h-8 rounded-full bg-emerald-100 text-primary flex justify-center items-center mr-3 shadow-sm"><i class="fas fa-check text-sm"></i></span>
                             নিয়মিত অনুশীলন ও প্র্যাক্টিক্যাল ফিডব্যাক
                         </li>
                     </ul>
 
-                    <!-- Quote Card -->
                     <div class="mt-8 glass-card p-6 border-l-4 border-l-primary relative">
-                        <i class="fas fa-quote-left absolute top-4 right-4 text-4xl text-indigo-100"></i>
+                        <i class="fas fa-quote-left absolute top-4 right-4 text-4xl text-emerald-100"></i>
                         <p class="text-lg italic text-slate-800 font-medium relative z-10">
                             "ভালো ফলাফল কেবল মুখস্থ করার মাধ্যমে নয়, বিষয়টি সত্যিই বোঝার মাধ্যমে আসে।"
                         </p>
@@ -441,20 +409,21 @@
         </div>
     </section>
 
+    <!-- Subjects Section -->
     <section id="subjects" class="py-20 relative">
         <div class="absolute inset-0 bg-slate-900 skew-y-3 origin-bottom-left z-0"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold tracking-widest text-cyan-400 uppercase mb-2">বিশেষত্ব</h2>
+                <h2 class="text-sm font-bold tracking-widest text-emerald-400 uppercase mb-2">বিশেষত্ব</h2>
                 <h3 class="text-3xl md:text-4xl font-bold text-white">যেসব বিষয় পড়াই</h3>
-                <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mt-4 rounded-full"></div>
+                <div class="w-20 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 mx-auto mt-4 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
                 <!-- Subject 1 -->
-                <div class="glass-dark p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white text-3xl mb-6 shadow-lg shadow-indigo-500/30">
+                <div class="glass-dark p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300 border border-emerald-500/20">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white text-3xl mb-6 shadow-lg shadow-emerald-600/30">
                         <i class="fas fa-atom"></i>
                     </div>
                     <h4 class="text-2xl font-bold text-white mb-4">একাদশ-দ্বাদশ শ্রেণি</h4>
@@ -464,8 +433,8 @@
                 </div>
 
                 <!-- Subject 2 -->
-                <div class="glass-dark p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-3xl mb-6 shadow-lg shadow-cyan-500/30">
+                <div class="glass-dark p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300 border border-teal-500/20">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white text-3xl mb-6 shadow-lg shadow-teal-500/30">
                         <i class="fas fa-square-root-variable"></i>
                     </div>
                     <h4 class="text-2xl font-bold text-white mb-4">নবম-দশম শ্রেণি (SSC)</h4>
@@ -475,8 +444,8 @@
                 </div>
 
                 <!-- Subject 3 -->
-                <div class="glass-dark p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-3xl mb-6 shadow-lg shadow-purple-500/30">
+                <div class="glass-dark p-8 rounded-2xl group hover:-translate-y-2 transition-all duration-300 border border-green-500/20">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center text-white text-3xl mb-6 shadow-lg shadow-green-500/30">
                         <i class="fas fa-book-open"></i>
                     </div>
                     <h4 class="text-2xl font-bold text-white mb-4">৬ষ্ঠ-৮ম শ্রেণি</h4>
@@ -488,6 +457,7 @@
         </div>
     </section>
 
+    <!-- Teaching Method Section -->
     <section id="method" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
@@ -497,9 +467,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 reveal">
                 <!-- Step 1 -->
-                <div class="glass-card p-6 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-indigo-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
-                        <span class="text-4xl font-bold text-indigo-100 mr-4 mt-4">০১</span>
+                <div class="glass-card p-6 relative overflow-hidden group border-t-2 border-t-emerald-500">
+                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
+                        <span class="text-4xl font-bold text-emerald-200 mr-4 mt-4">০১</span>
                     </div>
                     <div class="relative z-10">
                         <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
@@ -512,9 +482,9 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="glass-card p-6 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-violet-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
-                        <span class="text-4xl font-bold text-violet-100 mr-4 mt-4">০২</span>
+                <div class="glass-card p-6 relative overflow-hidden group border-t-2 border-t-teal-500">
+                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-teal-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
+                        <span class="text-4xl font-bold text-teal-200 mr-4 mt-4">০২</span>
                     </div>
                     <div class="relative z-10">
                         <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
@@ -527,9 +497,9 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="glass-card p-6 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-cyan-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
-                        <span class="text-4xl font-bold text-cyan-100 mr-4 mt-4">০৩</span>
+                <div class="glass-card p-6 relative overflow-hidden group border-t-2 border-t-emerald-400">
+                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-green-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
+                        <span class="text-4xl font-bold text-green-200 mr-4 mt-4">০৩</span>
                     </div>
                     <div class="relative z-10">
                         <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
@@ -542,13 +512,13 @@
                 </div>
 
                 <!-- Step 4 -->
-                <div class="glass-card p-6 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
-                        <span class="text-4xl font-bold text-blue-100 mr-4 mt-4">০৪</span>
+                <div class="glass-card p-6 relative overflow-hidden group border-t-2 border-t-teal-600">
+                    <div class="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center z-0 transition-transform group-hover:scale-150 duration-500">
+                        <span class="text-4xl font-bold text-emerald-200 mr-4 mt-4">০৪</span>
                     </div>
                     <div class="relative z-10">
                         <h4 class="text-xl font-bold text-slate-800 mb-3 flex items-center">
-                            <i class="fas fa-chart-line text-blue-500 mr-2"></i> উন্নতি করি
+                            <i class="fas fa-chart-line text-emerald-700 mr-2"></i> উন্নতি করি
                         </h4>
                         <p class="text-slate-600 text-sm leading-relaxed">
                             নিয়মিত revision, পরীক্ষা, practice ও ভুল বিশ্লেষণের মাধ্যমে কাঙ্ক্ষিত উন্নতি নিশ্চিত করা হয়।
@@ -559,7 +529,8 @@
         </div>
     </section>
 
-    <section id="qualifications" class="py-20 bg-slate-50 relative">
+    <!-- Academic Qualifications Section -->
+    <section id="qualifications" class="py-20 bg-emerald-50/40 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
                 <h3 class="text-3xl md:text-4xl font-bold text-slate-800">শিক্ষাগত যোগ্যতা</h3>
@@ -567,7 +538,6 @@
             </div>
 
             <div class="relative reveal">
-                <!-- Timeline Line -->
                 <div class="timeline-line"></div>
 
                 <div class="space-y-12">
@@ -581,9 +551,8 @@
                         </div>
                         <div class="absolute left-0 md:left-1/2 transform -translate-x-3 md:-translate-x-1/2 w-6 h-6 rounded-full bg-gradient-primary border-4 border-white shadow"></div>
                         <div class="ml-8 md:ml-0 md:w-1/2 md:pl-12">
-                            <div class="glass-card p-5 inline-block w-full">
-                                <span class="bg-indigo-100 text-primary text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">বর্তমান</span>
-                                <!-- Mobile view text -->
+                            <div class="glass-card p-5 inline-block w-full border border-emerald-100">
+                                <span class="bg-emerald-100 text-primary text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">বর্তমান</span>
                                 <div class="md:hidden mt-2">
                                     <h4 class="text-lg font-bold text-slate-800">ঢাকা সেন্ট্রাল ইউনিভার্সিটি</h4>
                                     <p class="text-slate-500 text-xs font-medium mb-1">(সংযুক্ত ঢাকা কলেজ)</p>
@@ -592,10 +561,10 @@
                                 <div class="mt-3 pt-3 border-t border-slate-100">
                                     <p class="text-xs text-slate-500 font-semibold mb-2 uppercase">Academic Focus:</p>
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Calculus</span>
-                                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Algebra</span>
-                                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Geometry</span>
-                                        <span class="text-xs bg-slate-100 px-2 py-1 rounded text-slate-600">Applied Math</span>
+                                        <span class="text-xs bg-emerald-50 px-2 py-1 rounded text-emerald-800 border border-emerald-100">Calculus</span>
+                                        <span class="text-xs bg-emerald-50 px-2 py-1 rounded text-emerald-800 border border-emerald-100">Algebra</span>
+                                        <span class="text-xs bg-emerald-50 px-2 py-1 rounded text-emerald-800 border border-emerald-100">Geometry</span>
+                                        <span class="text-xs bg-emerald-50 px-2 py-1 rounded text-emerald-800 border border-emerald-100">Applied Math</span>
                                     </div>
                                 </div>
                             </div>
@@ -605,17 +574,16 @@
                     <!-- Item 2 -->
                     <div class="relative flex md:justify-center items-center w-full">
                         <div class="hidden md:block w-1/2 pr-12 text-right">
-                            <div class="glass-card p-5 inline-block w-full">
-                                <span class="bg-violet-100 text-secondary text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">২০২৩</span>
+                            <div class="glass-card p-5 inline-block w-full border border-teal-100">
+                                <span class="bg-teal-100 text-secondary text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">২০২৩</span>
                             </div>
                         </div>
-                        <div class="absolute left-0 md:left-1/2 transform -translate-x-3 md:-translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 border-4 border-white shadow"></div>
+                        <div class="absolute left-0 md:left-1/2 transform -translate-x-3 md:-translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 border-4 border-white shadow"></div>
                         <div class="ml-8 md:ml-0 md:w-1/2 md:pl-12">
                             <h4 class="text-xl font-bold text-slate-800">HSC</h4>
                             <p class="text-secondary font-medium">GPA-5.00</p>
-                            <!-- Mobile view badge -->
                             <div class="md:hidden mt-2">
-                                <span class="bg-violet-100 text-secondary text-xs font-bold px-3 py-1 rounded-full">২০২৩</span>
+                                <span class="bg-teal-100 text-secondary text-xs font-bold px-3 py-1 rounded-full">২০২৩</span>
                             </div>
                         </div>
                     </div>
@@ -626,14 +594,13 @@
                             <h4 class="text-xl font-bold text-slate-800">SSC</h4>
                             <p class="text-accent font-medium">GPA-5.00</p>
                         </div>
-                        <div class="absolute left-0 md:left-1/2 transform -translate-x-3 md:-translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 border-4 border-white shadow"></div>
+                        <div class="absolute left-0 md:left-1/2 transform -translate-x-3 md:-translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 border-4 border-white shadow"></div>
                         <div class="ml-8 md:ml-0 md:w-1/2 md:pl-12">
-                            <div class="glass-card p-5 inline-block w-full">
-                                <span class="bg-cyan-100 text-accent text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">২০২১</span>
-                                <!-- Mobile view text -->
+                            <div class="glass-card p-5 inline-block w-full border border-emerald-100">
+                                <span class="bg-emerald-100 text-primary text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">২০২১</span>
                                 <div class="md:hidden mt-2">
                                     <h4 class="text-lg font-bold text-slate-800">SSC</h4>
-                                    <p class="text-accent text-sm font-medium">GPA-5.00</p>
+                                    <p class="text-primary text-sm font-medium">GPA-5.00</p>
                                 </div>
                             </div>
                         </div>
@@ -643,40 +610,42 @@
         </div>
     </section>
 
+    <!-- Why Choose Me Section -->
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
                 <h3 class="text-3xl md:text-4xl font-bold text-slate-800">কেন আমার কাছে পড়বেন?</h3>
+                <div class="w-20 h-1 bg-gradient-primary mx-auto mt-4 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-50 text-primary rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-comment-dots"></i></div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-50 text-primary rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-comment-dots"></i></div>
                     <h4 class="text-lg font-bold text-slate-800 mb-2">সহজ ভাষায় ব্যাখ্যা</h4>
                     <p class="text-slate-600 text-sm">বইয়ের কঠিন ভাষাকে দৈনন্দিন জীবনের উদাহরণের সাহায্যে সহজ করে তোলা।</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-violet-50 text-secondary rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-brain"></i></div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-teal-50 text-secondary rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-brain"></i></div>
                     <h4 class="text-lg font-bold text-slate-800 mb-2">ধারণাভিত্তিক শিক্ষা</h4>
                     <p class="text-slate-600 text-sm">না বুঝে মুখস্থ করার পরিবর্তে মূল কনসেপ্ট বুঝতে সাহায্য করা।</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-cyan-50 text-accent rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-user-focus"></i></div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-50 text-accent rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-user-focus"></i></div>
                     <h4 class="text-lg font-bold text-slate-800 mb-2">ব্যক্তিগত মনোযোগ</h4>
                     <p class="text-slate-600 text-sm">প্রত্যেক শিক্ষার্থীর শেখার নিজস্ব গতির দিকে খেয়াল রেখে পড়ানো।</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-pencil-alt"></i></div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-teal-50 text-teal-700 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-pencil-alt"></i></div>
                     <h4 class="text-lg font-bold text-slate-800 mb-2">নিয়মিত practice</h4>
                     <p class="text-slate-600 text-sm">পড়া মনে রাখার জন্য নিয়মিত অনুশীলন এবং ফিডব্যাক প্রদান।</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-rose-50 text-rose-500 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-search-plus"></i></div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-search-plus"></i></div>
                     <h4 class="text-lg font-bold text-slate-800 mb-2">দুর্বলতা শনাক্তকরণ</h4>
                     <p class="text-slate-600 text-sm">শিক্ষার্থী কোন জায়গাটায় বুঝতে পারছে না, তা খুঁজে বের করে সমাধান করা।</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-emerald-50 text-emerald-500 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-tasks"></i></div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-xl mb-4"><i class="fas fa-tasks"></i></div>
                     <h4 class="text-lg font-bold text-slate-800 mb-2">পরীক্ষামুখী প্রস্তুতি</h4>
                     <p class="text-slate-600 text-sm">বোর্ড পরীক্ষা বা অ্যাডমিশনের প্রশ্নের প্যাটার্ন অনুযায়ী প্রস্তুতি নেওয়া।</p>
                 </div>
@@ -684,6 +653,7 @@
         </div>
     </section>
 
+    <!-- Tuition Information Section -->
     <section id="tuition" class="py-20 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
@@ -691,11 +661,11 @@
                 <div class="w-20 h-1 bg-gradient-primary mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <div class="glass-card p-2 rounded-3xl reveal">
+            <div class="glass-card p-2 rounded-3xl reveal border border-emerald-100">
                 <div class="bg-white rounded-[1.25rem] p-8 md:p-12">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                            <div class="w-12 h-12 bg-emerald-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="ml-4">
@@ -705,7 +675,7 @@
                         </div>
 
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                            <div class="w-12 h-12 bg-emerald-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
                                 <i class="fas fa-home"></i>
                             </div>
                             <div class="ml-4">
@@ -715,7 +685,7 @@
                         </div>
 
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                            <div class="w-12 h-12 bg-emerald-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
                                 <i class="fas fa-laptop"></i>
                             </div>
                             <div class="ml-4">
@@ -725,7 +695,7 @@
                         </div>
 
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                            <div class="w-12 h-12 bg-emerald-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
                                 <i class="fas fa-users"></i>
                             </div>
                             <div class="ml-4">
@@ -735,7 +705,7 @@
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                            <div class="w-12 h-12 bg-emerald-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div class="ml-4">
@@ -745,7 +715,7 @@
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="w-12 h-12 bg-indigo-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
+                            <div class="w-12 h-12 bg-emerald-50 text-primary rounded-full flex items-center justify-center text-xl shrink-0">
                                 <i class="fas fa-wallet"></i>
                             </div>
                             <div class="ml-4">
@@ -759,7 +729,8 @@
         </div>
     </section>
 
-    <section class="py-20 bg-slate-100">
+    <!-- Free Resources Section -->
+    <section class="py-20 bg-emerald-50/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
                 <div>
@@ -769,88 +740,83 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-                <!-- Resource 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between border border-emerald-100">
                     <div>
-                        <div class="w-10 h-10 bg-indigo-50 text-primary rounded-lg flex items-center justify-center mb-4">
+                        <div class="w-10 h-10 bg-emerald-50 text-primary rounded-lg flex items-center justify-center mb-4">
                             <i class="fas fa-file-pdf"></i>
                         </div>
                         <h4 class="text-lg font-bold text-slate-800 mb-2">উচ্চতর গণিতের সূত্রাবলি</h4>
                         <p class="text-xs text-slate-500 mb-4">HSC ও SSC শিক্ষার্থীদের জন্য</p>
                     </div>
-                    <button class="w-full py-2 bg-slate-50 text-primary font-semibold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                    <button class="w-full py-2 bg-emerald-50 text-primary font-semibold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
                 </div>
                 
-                <!-- Resource 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between border border-emerald-100">
                     <div>
-                        <div class="w-10 h-10 bg-indigo-50 text-primary rounded-lg flex items-center justify-center mb-4">
+                        <div class="w-10 h-10 bg-emerald-50 text-primary rounded-lg flex items-center justify-center mb-4">
                             <i class="fas fa-file-pdf"></i>
                         </div>
                         <h4 class="text-lg font-bold text-slate-800 mb-2">Physics Quick Notes</h4>
                         <p class="text-xs text-slate-500 mb-4">একাদশ-দ্বাদশ শ্রেণি</p>
                     </div>
-                    <button class="w-full py-2 bg-slate-50 text-primary font-semibold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                    <button class="w-full py-2 bg-emerald-50 text-primary font-semibold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
                 </div>
 
-                <!-- Resource 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between border border-teal-100">
                     <div>
-                        <div class="w-10 h-10 bg-cyan-50 text-accent rounded-lg flex items-center justify-center mb-4">
+                        <div class="w-10 h-10 bg-teal-50 text-secondary rounded-lg flex items-center justify-center mb-4">
                             <i class="fas fa-file-alt"></i>
                         </div>
                         <h4 class="text-lg font-bold text-slate-800 mb-2">SSC Math Practice</h4>
                         <p class="text-xs text-slate-500 mb-4">গুরুত্বপূর্ণ ফর্মুলা ও টিপস</p>
                     </div>
-                    <button class="w-full py-2 bg-slate-50 text-accent font-semibold rounded-lg group-hover:bg-accent group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                    <button class="w-full py-2 bg-teal-50 text-secondary font-semibold rounded-lg group-hover:bg-secondary group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
                 </div>
 
-                <!-- Resource 4 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between">
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group flex flex-col justify-between border border-emerald-100">
                     <div>
-                        <div class="w-10 h-10 bg-indigo-50 text-primary rounded-lg flex items-center justify-center mb-4">
+                        <div class="w-10 h-10 bg-emerald-50 text-primary rounded-lg flex items-center justify-center mb-4">
                             <i class="fas fa-book"></i>
                         </div>
                         <h4 class="text-lg font-bold text-slate-800 mb-2">ICT Revision Guide</h4>
                         <p class="text-xs text-slate-500 mb-4">শেষ মুহূর্তের প্রস্তুতি</p>
                     </div>
-                    <button class="w-full py-2 bg-slate-50 text-primary font-semibold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
+                    <button class="w-full py-2 bg-emerald-50 text-primary font-semibold rounded-lg group-hover:bg-primary group-hover:text-white transition-colors">দেখুন <i class="fas fa-arrow-right ml-1 text-xs"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FAQ Section -->
     <section class="py-20 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
             <div class="text-center mb-12">
                 <h3 class="text-3xl md:text-4xl font-bold text-slate-800">সাধারণ প্রশ্ন (FAQ)</h3>
+                <div class="w-20 h-1 bg-gradient-primary mx-auto mt-4 rounded-full"></div>
             </div>
 
             <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="glass-card overflow-hidden">
+                <div class="glass-card overflow-hidden border border-emerald-100">
                     <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
                         <span class="font-bold text-slate-800 text-lg">কোন কোন শ্রেণির শিক্ষার্থী পড়ানো হয়?</span>
                         <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
-                        <p class="pb-4 text-slate-600">আমি সাধারণত নবম-দশম শ্রেণি (SSC), একাদশ-দ্বাদশ শ্রেণি (HSC) এবং বিশ্ববিদ্যালয় পর্যায়ের নির্বাচিত কিছু বিষয়ে পড়াই।</p>
+                        <p class="pb-4 text-slate-600">আমি সাধারণত ৬ষ্ঠ-৮ম শ্রেণির সকল বিষয়, নবম-দশম শ্রেণি (SSC) এবং একাদশ-দ্বাদশ শ্রেণির (HSC) বিজ্ঞান বিভাগের বিষয়সমূহ পড়াই।</p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
-                <div class="glass-card overflow-hidden">
+                <div class="glass-card overflow-hidden border border-emerald-100">
                     <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
                         <span class="font-bold text-slate-800 text-lg">হোম টিউশন ও অনলাইন—দুটিই কি করা হয়?</span>
                         <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
-                        <p class="pb-4 text-slate-600">হ্যাঁ, আমি হোম টিউশন এবং অনলাইন (Google Meet/Zoom-এর মাধ্যমে) দুটি মাধ্যমেই পড়িয়ে থাকি। তবে হোম টিউশন আমার লোকেশন বা দূরত্বের ওপর নির্ভর করে।</p>
+                        <p class="pb-4 text-slate-600">হ্যাঁ, আমি হোম টিউশন এবং অনলাইন (Google Meet/Zoom-এর মাধ্যমে) দুটি মাধ্যমেই পড়িয়ে থাকি। তবে হোম টিউশন লোকেশন ও দূরত্বের ওপর নির্ভর করে।</p>
                     </div>
                 </div>
 
-                <!-- FAQ Item 3 -->
-                <div class="glass-card overflow-hidden">
+                <div class="glass-card overflow-hidden border border-emerald-100">
                     <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
                         <span class="font-bold text-slate-800 text-lg">একজন শিক্ষার্থীর জন্য ক্লাসের সময় কীভাবে নির্ধারণ করা হয়?</span>
                         <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
@@ -860,54 +826,59 @@
                     </div>
                 </div>
 
-                <!-- FAQ Item 4 -->
-                <div class="glass-card overflow-hidden">
+                <div class="glass-card overflow-hidden border border-emerald-100">
                     <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
-                        <span class="font-bold text-slate-800 text-lg">Trial class কি নেওয়া যায়?</span>
+                        <span class="font-bold text-slate-800 text-lg">Trial class কি নেওয়া যায়?</span>
                         <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
                     </button>
                     <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
-                        <p class="pb-4 text-slate-600">অবশ্যই। শিক্ষার্থী আমার পড়ানোর পদ্ধতির সাথে মানিয়ে নিতে পারছে কিনা, তা বোঝার জন্য ১-২ দিনের Trial class-এর ব্যবস্থা রয়েছে।</p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="glass-card overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none">
-                        <span class="font-bold text-slate-800 text-lg">অভিভাবকের সঙ্গে progress update করা হয় কি?</span>
-                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 px-6">
-                        <p class="pb-4 text-slate-600">হ্যাঁ, শিক্ষার্থীর অগ্রগতি, পরীক্ষার ফলাফল এবং উন্নতির জায়গাগুলো নিয়ে নিয়মিতভাবে অভিভাবকদের সাথে আলোচনা করা হয়।</p>
+                        <p class="pb-4 text-slate-600">অবশ্যই। শিক্ষার্থী আমার পড়ানোর পদ্ধতির সাথে মানিয়ে নিতে পারছে কিনা, তা বোঝার জন্য ট্রায়াল ক্লাসের সুযোগ রয়েছে।</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20">
+    <!-- Large Bottom Direct Dial & WhatsApp Section -->
+    <section class="py-16 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-            <div class="bg-gradient-primary rounded-3xl p-10 md:p-16 text-center text-white shadow-2xl shadow-indigo-500/20 relative overflow-hidden">
-                <!-- Decorative elements -->
+            <div class="bg-gradient-primary rounded-3xl p-8 sm:p-12 md:p-16 text-center text-white shadow-2xl shadow-emerald-700/30 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-400 opacity-20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-teal-300 opacity-20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
                 
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 relative z-10">শেখার পথটা সহজ হোক<br>সঠিক দিকনির্দেশনায়।</h2>
-                <p class="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto relative z-10">আপনার বা আপনার সন্তানের পড়াশোনার প্রয়োজন ও লক্ষ্য সম্পর্কে জানাতে সরাসরি যোগাযোগ করুন।</p>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 relative z-10">শেখার পথটা সহজ হোক<br>সঠিক দিকনির্দেশনায়।</h2>
+                <p class="text-emerald-100 text-lg mb-10 max-w-2xl mx-auto relative z-10">যেকোনো তথ্য জানতে বা সরাসরি ক্লাসের বিষয়ে কথা বলতে নিচে ক্লিক করুন</p>
                 
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 relative z-10">
-                    <a href="https://wa.me/8801580789051" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-white text-primary font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center justify-center">
-                        <i class="fab fa-whatsapp text-2xl mr-2 text-green-500"></i> WhatsApp-এ যোগাযোগ
+                <!-- EXTRA LARGE TOUCH-FRIENDLY BUTTONS (DIALPAD & WHATSAPP) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto relative z-10">
+                    <!-- Big WhatsApp Action -->
+                    <a href="https://wa.me/8801580789051" target="_blank" class="flex items-center justify-center bg-white text-emerald-900 hover:bg-emerald-50 px-6 py-5 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1 hover:shadow-2xl group border-2 border-emerald-300">
+                        <div class="w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center text-3xl mr-4 shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-xs uppercase tracking-wider font-bold text-emerald-600">WhatsApp এ লিখুন</span>
+                            <span class="text-xl sm:text-2xl font-black font-sans text-slate-800">01580789051</span>
+                        </div>
                     </a>
-                    <a href="tel:+8801402775903" class="w-full sm:w-auto px-8 py-4 bg-indigo-800/50 backdrop-blur border border-indigo-400/50 text-white font-bold rounded-full hover:bg-indigo-700/50 transition-all flex items-center justify-center">
-                        <i class="fas fa-phone-alt mr-2"></i> কল করুন
+
+                    <!-- Big Direct Dial Action -->
+                    <a href="tel:+8801402775903" class="flex items-center justify-center bg-emerald-950/85 hover:bg-emerald-900 text-white px-6 py-5 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1 hover:shadow-2xl group border-2 border-emerald-400/60">
+                        <div class="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl mr-4 shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-xs uppercase tracking-wider font-bold text-emerald-300">সরাসরি ডায়াল করুন</span>
+                            <span class="text-xl sm:text-2xl font-black font-sans text-white">01402775903</span>
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+    <!-- Contact Form & Info Section -->
+    <section id="contact" class="py-20 bg-emerald-50/50 border-t border-emerald-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 reveal">
                 <!-- Contact Info -->
@@ -916,18 +887,18 @@
                     <p class="text-slate-600 mb-10">যেকোনো প্রশ্ন বা টিউশন সম্পর্কিত তথ্যের জন্য নিচের মাধ্যমগুলোতে যোগাযোগ করতে পারেন অথবা ফর্মটি পূরণ করতে পারেন।</p>
                     
                     <div class="space-y-6">
-                        <a href="tel:+8801402775903" class="flex items-center p-4 glass-card hover:border-primary transition-colors group">
-                            <div class="w-12 h-12 bg-indigo-100 text-primary rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <a href="tel:+8801402775903" class="flex items-center p-4 glass-card hover:border-primary transition-colors group border border-emerald-100">
+                            <div class="w-12 h-12 bg-emerald-100 text-primary rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div class="ml-4">
-                                <p class="text-sm text-slate-500 font-medium">ফোন</p>
+                                <p class="text-sm text-slate-500 font-medium">ফোন (সরাসরি কল)</p>
                                 <p class="text-lg font-bold text-slate-800">01402775903, 01580789051</p>
                             </div>
                         </a>
                         
-                        <a href="mailto:robiulpi314@gmail.com" class="flex items-center p-4 glass-card hover:border-primary transition-colors group">
-                            <div class="w-12 h-12 bg-indigo-100 text-primary rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <a href="mailto:robiulpi314@gmail.com" class="flex items-center p-4 glass-card hover:border-primary transition-colors group border border-emerald-100">
+                            <div class="w-12 h-12 bg-emerald-100 text-primary rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="ml-4">
@@ -937,7 +908,7 @@
                         </a>
                         
                         <div class="flex space-x-4 mt-8">
-                            <a href="https://wa.me/8801580789051" target="_blank" class="w-12 h-12 bg-white shadow-sm border border-slate-200 text-green-500 rounded-full flex items-center justify-center text-2xl hover:bg-green-500 hover:text-white transition-all">
+                            <a href="https://wa.me/8801580789051" target="_blank" class="w-12 h-12 bg-white shadow-sm border border-emerald-200 text-emerald-600 rounded-full flex items-center justify-center text-2xl hover:bg-emerald-600 hover:text-white transition-all">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             <a href="https://www.linkedin.com/in/md-robiul-islam-031a3243a" target="_blank" class="w-12 h-12 bg-white shadow-sm border border-slate-200 text-blue-600 rounded-full flex items-center justify-center text-2xl hover:bg-blue-600 hover:text-white transition-all">
@@ -951,30 +922,29 @@
                 </div>
 
                 <!-- Contact Form -->
-                <div class="glass-card p-8 shadow-lg">
+                <div class="glass-card p-8 shadow-lg border border-emerald-100">
                     <h4 class="text-2xl font-bold text-slate-800 mb-6">বার্তা পাঠান</h4>
                     
-                    <!-- Form handled via JS to prevent reload since there's no backend -->
                     <form id="contactForm" class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">নাম <span class="text-red-500">*</span></label>
-                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/50 backdrop-blur-sm" placeholder="আপনার নাম">
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/70 backdrop-blur-sm" placeholder="আপনার নাম">
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-slate-700 mb-1">ফোন নম্বর <span class="text-red-500">*</span></label>
-                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/50 backdrop-blur-sm" placeholder="01XXX-XXXXXX">
+                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/70 backdrop-blur-sm" placeholder="01XXX-XXXXXX">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-slate-700 mb-1">শ্রেণি / মাধ্যম</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/50 backdrop-blur-sm" placeholder="যেমন: HSC '26">
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/70 backdrop-blur-sm" placeholder="যেমন: HSC '26">
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">যে বিষয়ে পড়তে চান</label>
-                            <select class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/50 backdrop-blur-sm text-slate-700">
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/70 backdrop-blur-sm text-slate-700">
                                 <option value="">নির্বাচন করুন...</option>
                                 <option value="math">গণিত (সাধারণ/উচ্চতর)</option>
                                 <option value="physics">পদার্থবিজ্ঞান</option>
@@ -986,7 +956,7 @@
                         
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1">বার্তা বা প্রশ্ন</label>
-                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/50 backdrop-blur-sm resize-none" placeholder="আপনার বার্তাটি এখানে লিখুন..."></textarea>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all bg-white/70 backdrop-blur-sm resize-none" placeholder="আপনার বার্তাটি এখানে লিখুন..."></textarea>
                         </div>
                         
                         <button type="submit" class="w-full py-4 bg-gradient-primary text-white font-bold rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
@@ -994,9 +964,8 @@
                         </button>
                     </form>
                     
-                    <!-- Success Message (Hidden by default) -->
-                    <div id="formSuccess" class="hidden mt-4 p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 flex items-center">
-                        <i class="fas fa-check-circle mr-2 text-xl"></i> 
+                    <div id="formSuccess" class="hidden mt-4 p-4 bg-emerald-50 text-emerald-800 rounded-xl border border-emerald-300 flex items-center">
+                        <i class="fas fa-check-circle mr-2 text-xl text-emerald-600"></i> 
                         <div>
                             <p class="font-bold">ধন্যবাদ!</p>
                             <p class="text-sm">আপনার বার্তাটি সফলভাবে পাঠানো হয়েছে। আমি শীঘ্রই যোগাযোগ করব।</p>
@@ -1007,35 +976,36 @@
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-emerald-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
                 <div class="md:col-span-1">
-                    <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 mb-2">মোঃ রবিউল ইসলাম</h2>
-                    <p class="text-slate-400 font-medium mb-4">গণিত বিভাগের শিক্ষার্থী | বিজ্ঞান ও গণিত শিক্ষক</p>
-                    <p class="text-slate-500 text-sm italic">"বোঝার মাধ্যমে শেখা, আত্মবিশ্বাসের সঙ্গে এগিয়ে যাওয়া।"</p>
+                    <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">মোঃ রবিউল ইসলাম</h2>
+                    <p class="text-emerald-300/80 font-medium mb-4">গণিত বিভাগের শিক্ষার্থী | বিজ্ঞান ও গণিত শিক্ষক</p>
+                    <p class="text-slate-400 text-sm italic">"বোঝার মাধ্যমে শেখা, আত্মবিশ্বাসের সঙ্গে এগিয়ে যাওয়া।"</p>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4 text-slate-200">প্রয়োজনীয় লিংক</h4>
+                    <h4 class="text-lg font-bold mb-4 text-emerald-200">প্রয়োজনীয় লিংক</h4>
                     <ul class="space-y-2">
-                        <li><a href="#about" class="text-slate-400 hover:text-white transition-colors">আমার সম্পর্কে</a></li>
-                        <li><a href="#subjects" class="text-slate-400 hover:text-white transition-colors">বিষয়সমূহ</a></li>
-                        <li><a href="#tuition" class="text-slate-400 hover:text-white transition-colors">টিউশন তথ্য</a></li>
+                        <li><a href="#about" class="text-slate-400 hover:text-emerald-400 transition-colors">আমার সম্পর্কে</a></li>
+                        <li><a href="#subjects" class="text-slate-400 hover:text-emerald-400 transition-colors">বিষয়সমূহ</a></li>
+                        <li><a href="#tuition" class="text-slate-400 hover:text-emerald-400 transition-colors">টিউশন তথ্য</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-4 text-slate-200">যুক্ত থাকুন</h4>
+                    <h4 class="text-lg font-bold mb-4 text-emerald-200">যুক্ত থাকুন</h4>
                     <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/md-robiul-islam-031a3243a" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://wa.me/8801580789051" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-500 transition-colors"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://x.com/MDRobiulpi314" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#1DA1F2] transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/md-robiul-islam-031a3243a" target="_blank" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/8801580789051" target="_blank" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-emerald-600 transition-colors"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://x.com/MDRobiulpi314" target="_blank" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#1DA1F2] transition-colors"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-slate-500 text-sm">&copy; 2026 মোঃ রবিউল ইসলাম — সর্বস্বত্ব সংরক্ষিত।</p>
                 <p class="text-slate-600 text-sm mt-2 md:mt-0">Designed for Education.</p>
             </div>
@@ -1075,16 +1045,12 @@
             const navbar = document.getElementById('navbar');
 
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 35) {
+                if (window.scrollY > 30) {
                     topBar.classList.add('is-scrolled');
                     navbar.classList.add('is-scrolled');
-                    navbar.classList.add('py-1.5');
-                    navbar.classList.remove('py-3');
                 } else {
                     topBar.classList.remove('is-scrolled');
                     navbar.classList.remove('is-scrolled');
-                    navbar.classList.add('py-3');
-                    navbar.classList.remove('py-1.5');
                 }
             });
 
@@ -1095,7 +1061,6 @@
                     const content = this.nextElementSibling;
                     const icon = this.querySelector('i');
                     
-                    // Close all other open accordions
                     faqBtns.forEach(otherBtn => {
                         if (otherBtn !== this) {
                             otherBtn.nextElementSibling.style.maxHeight = null;
@@ -1104,7 +1069,6 @@
                         }
                     });
 
-                    // Toggle current
                     if (content.style.maxHeight) {
                         content.style.maxHeight = null;
                         icon.style.transform = 'rotate(0deg)';
@@ -1117,19 +1081,18 @@
                 });
             });
 
-            // 4. Scroll Reveal Animations (Intersection Observer)
+            // 4. Scroll Reveal Animations
             const revealElements = document.querySelectorAll('.reveal');
-            
             const revealOptions = {
                 threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
+                rootMargin: "0px 0px -40px 0px"
             };
 
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // Reveal only once
+                        observer.unobserve(entry.target);
                     }
                 });
             }, revealOptions);
@@ -1143,24 +1106,19 @@
             const formSuccess = document.getElementById('formSuccess');
 
             contactForm.addEventListener('submit', (e) => {
-                e.preventDefault(); // Prevent page reload
+                e.preventDefault();
                 
-                // Change button state temporarily to show loading
                 const submitBtn = contactForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> পাঠানো হচ্ছে...';
                 submitBtn.disabled = true;
 
-                // Simulate network request delay
                 setTimeout(() => {
                     contactForm.reset();
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
-                    
-                    // Show success message
                     formSuccess.classList.remove('hidden');
                     
-                    // Hide success message after 5 seconds
                     setTimeout(() => {
                         formSuccess.classList.add('hidden');
                     }, 5000);
