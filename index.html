@@ -175,7 +175,45 @@
         <div class="absolute -bottom-32 left-1/3 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
     </div>
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+    <!-- Top Quick Contact Bar (High Contrast, Ultra Visible & Eye-Catching) -->
+    <div class="fixed top-0 left-0 w-full z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 py-2 sm:py-3 px-3 sm:px-6 shadow-2xl transition-all">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-center sm:justify-between items-center gap-3 sm:gap-4">
+            
+            <!-- Quick Contact Links (High-Visibility Glowing Pill Cards) -->
+            <div class="flex items-center flex-wrap justify-center gap-3 sm:gap-6 text-white">
+                <!-- Phone Number (Direct Dial) -->
+                <a href="tel:+8801402775903" class="flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-indigo-500/70 hover:border-indigo-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-indigo-500/25 transition-all group hover:scale-[1.03]" title="সরাসরি কল করতে ক্লিক করুন">
+                    <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-indigo-500/50 transition-all text-lg sm:text-xl">
+                        <i class="fas fa-phone-alt"></i>
+                    </span>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[11px] sm:text-xs text-indigo-300 uppercase tracking-wider font-bold">সরাসরি কল করুন</span>
+                        <span class="text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-indigo-200">01402775903</span>
+                    </div>
+                </a>
+
+                <!-- WhatsApp (Direct Chat) -->
+                <a href="https://wa.me/8801580789051" target="_blank" class="flex items-center bg-slate-900 hover:bg-slate-800 border-2 border-emerald-500/70 hover:border-emerald-400 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-full shadow-lg shadow-emerald-500/25 transition-all group hover:scale-[1.03]" title="WhatsApp-এ সরাসরি মেসেজ পাঠাতে ক্লিক করুন">
+                    <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-emerald-600 to-green-400 text-white flex items-center justify-center mr-3 group-hover:scale-110 shadow-md shadow-emerald-500/50 transition-all text-xl sm:text-2xl">
+                        <i class="fab fa-whatsapp"></i>
+                    </span>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[11px] sm:text-xs text-emerald-300 uppercase tracking-wider font-bold">WhatsApp চ্যাট</span>
+                        <span class="text-base sm:text-xl font-extrabold tracking-wider font-sans text-white group-hover:text-emerald-200">01580789051</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Booking Status Badge -->
+            <div class="hidden lg:flex items-center space-x-2 text-sm text-emerald-300 bg-emerald-950/60 px-4 py-2 rounded-full border border-emerald-500/50 shadow-md shadow-emerald-500/20">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold tracking-wide">বুকিং টিউশন</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar (Positioned below enlarged top-bar) -->
+    <nav id="navbar" class="fixed top-16 sm:top-20 w-full z-40 transition-all duration-300 py-3">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center glass px-6 py-3 rounded-full shadow-sm">
                 <!-- Logo -->
@@ -215,7 +253,7 @@
         </div>
     </nav>
 
-    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section id="home" class="relative pt-40 pb-20 lg:pt-56 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 
