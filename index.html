@@ -16,7 +16,7 @@
 <style>
 *{box-sizing:border-box;margin:0}
 :root{color-scheme:dark;--ink:#eef2ff;--mut:#b4bfdc;--b:#a5b4fc;--t:#5eead4;--g:linear-gradient(120deg,#a5b4fc,#5eead4 60%,#fde68a);--gb:linear-gradient(120deg,#4f46e5,#0d9488)}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
 body{font-family:'Hind Siliguri',system-ui,sans-serif;color:var(--ink);line-height:1.7;background:#070b23}
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(38% 32% at 4% 3%,#ea433577,transparent),radial-gradient(40% 36% at 97% 8%,#4285f499,transparent),radial-gradient(34% 30% at 50% 48%,#7c3aed44,transparent),radial-gradient(42% 36% at 94% 92%,#34a85377,transparent),radial-gradient(38% 32% at 3% 94%,#fbbc0466,transparent)}
 .glass{background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);border:1px solid rgba(255,255,255,.18);border-radius:22px;box-shadow:0 10px 34px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.16)}
@@ -30,8 +30,8 @@ a{color:inherit}
 .card{padding:22px}
 .ic{font-size:1.9rem;display:block;margin-bottom:6px}
 .chip{display:inline-block;padding:3px 14px;border-radius:99px;background:rgba(165,180,252,.18);color:#c7d2fe;font-weight:600;font-size:.92rem;margin:3px 3px 3px 0}
-header{position:sticky;top:10px;z-index:9;max-width:1080px;margin:10px auto 0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;border-radius:99px}
-header b{font-size:1.15rem}
+header{position:sticky;top:10px;z-index:9;max-width:1080px;margin:10px auto 0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 22px;border-radius:26px}
+.brand{line-height:1.3}.brand b{display:block;font-size:clamp(1.35rem,3.6vw,1.8rem);line-height:1.2}.brand span{display:block;font-weight:600;color:#5eead4;font-size:.95rem}.brand small{display:block;color:var(--mut);font-size:.8rem}header .btn{white-space:nowrap}
 .nl a{text-decoration:none;margin-right:16px;font-weight:600;font-size:.95rem}
 .btn{display:inline-block;padding:12px 24px;border-radius:99px;font:inherit;font-weight:700;color:#fff;text-decoration:none;background:var(--gb);border:0;cursor:pointer;box-shadow:0 8px 22px rgba(79,70,229,.45)}
 .btn.o{background:rgba(255,255,255,.08);color:#e0e7ff;box-shadow:none;border:1px solid rgba(255,255,255,.28)}
@@ -70,7 +70,7 @@ footer{text-align:center;padding:30px 18px 40px;color:var(--mut)}
 </head>
 <body>
 <header class="glass">
-  <b>মোঃ রবিউল ইসলাম</b>
+  <div class="brand"><b>মোঃ রবিউল ইসলাম</b><span>Math and Science Tutor</span><small>B.Sc. (Honours) in Mathematics, Dhaka College — Dhaka Central University</small></div>
   <nav class="nl"><a href="#about">পরিচিতি</a><a href="#subjects">বিষয়</a><a href="#method">পদ্ধতি</a><a href="#tuition">টিউশন তথ্য</a><a href="#contact">যোগাযোগ</a></nav>
   <a class="btn s" href="https://wa.me/8801580789051" target="_blank" rel="noopener">WhatsApp</a>
 </header>
@@ -95,9 +95,9 @@ footer{text-align:center;padding:30px 18px 40px;color:var(--mut)}
 <section id="about">
   <h2>আমার সম্পর্কে</h2>
   <div class="about glass card">
-    <img src="about.jpg" width="440" height="440" loading="lazy" decoding="async" alt="পড়ানোর সময় মোঃ রবিউল ইসলাম">
+    <img src="about.jpg" width="440" height="440" loading="lazy" decoding="async" alt="ঢাকা কলেজের প্রধান ফটক">
     <div>
-      <p>আমি মোঃ রবিউল ইসলাম, ঢাকা সেন্ট্রাল ইউনিভার্সিটির (সংযুক্ত ঢাকা কলেজ) গণিত বিভাগের অনার্স ২য় বর্ষের ছাত্র। ২০২১ সাল থেকে ৫ বছর ধরে ব্যক্তিগতভাবে শিক্ষার্থীদের গণিত ও বিজ্ঞান পড়াচ্ছি।</p>
+      <p>আমি মোঃ রবিউল ইসলাম, ঢাকা কলেজের গণিত বিভাগের অনার্স ২য় বর্ষের ছাত্র। ২০২১ সাল থেকে ৫ বছর ধরে ব্যক্তিগতভাবে শিক্ষার্থীদের গণিত ও বিজ্ঞান পড়াচ্ছি।</p>
       <p style="margin-top:10px">আমার কাছে ভালো শিক্ষকতা মানে শুধু সিলেবাস শেষ করা নয়, শিক্ষার্থীর দুর্বল জায়গা খুঁজে বের করে তাকে আত্মবিশ্বাসী করা। মুখস্থের চেয়ে বুঝে শেখা অনেক বেশি দীর্ঘস্থায়ী।</p>
       <ul>
         <li>Concept building-এ বিশেষ গুরুত্ব, আগে সহজ ব্যাখ্যা, তারপর practice</li>
@@ -131,7 +131,7 @@ footer{text-align:center;padding:30px 18px 40px;color:var(--mut)}
 <section id="results">
   <h2>যোগ্যতা ও ফলাফল</h2>
   <div class="grid">
-    <div class="glass card"><h3>অনার্স, গণিত বিভাগ (২য় বর্ষ)</h3><p>ঢাকা সেন্ট্রাল ইউনিভার্সিটি (সংযুক্ত ঢাকা কলেজ)</p></div>
+    <div class="glass card"><h3>অনার্স, গণিত বিভাগ (২য় বর্ষ)</h3><p>ঢাকা কলেজ</p></div>
     <div class="glass card"><h3>HSC (বিজ্ঞান), ২০২৩</h3><p>GPA ৫.০০, ঢাকা কলেজ</p></div>
     <div class="glass card"><h3>SSC (বিজ্ঞান), ২০২১</h3><p>GPA ৫.০০, মাতুয়াইল বহুমুখী উচ্চ বিদ্যালয়</p></div>
     <div class="glass card"><h3>🏆 SSC শিক্ষার্থীর ফলাফল</h3><p>আমার একজন SSC শিক্ষার্থী A+ পেয়েছে।</p></div>
